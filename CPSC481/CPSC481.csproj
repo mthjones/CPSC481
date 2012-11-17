@@ -70,7 +70,9 @@
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Lecture.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Thread.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

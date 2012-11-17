@@ -5,9 +5,8 @@ using System.Text;
 
 namespace CPSC481.Models
 {
-    public class Thread
+    public class Post
     {
-        public List<Post> Posts { get; private set; }
         public string Content { get; set; }
         public DateTime Posted { get; set; }
         public User Poster { get; set; }
