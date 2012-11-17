@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CPSC481.Models
 {
-    class Thread
+    public class Thread
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CPSC481.Models
 {
-    class Announcement
+    public class Announcement
     {
     }
 }
