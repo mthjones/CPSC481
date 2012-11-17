@@ -7,5 +7,7 @@ namespace CPSC481.Models
 {
     public class Announcement
     {
+        public string Content { get; set; }
+        public DateTime Posted { get; set; }
     }
 }
