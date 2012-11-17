@@ -3,22 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Course" Height="350" Width="700">
     <Grid>
-        <StackPanel VerticalAlignment="Top">
-            <Label Content="CPSC 481" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
-        </StackPanel>
-        <ListBox x:Name="PrimaryCategoryList" HorizontalAlignment="Left" Margin="0,37,0,0" Width="149" SelectionChanged="PrimaryCategoryList_SelectionChanged">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding}" FontSize="16" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox x:Name="SecondaryCategoryList" HorizontalAlignment="Left" Margin="149,37,0,0" Width="149">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding}" FontSize="16" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <Label Content="CPSC 481" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
+            </StackPanel>
+            <ListBox x:Name="PrimaryCategoryList" HorizontalAlignment="Left" SelectionChanged="PrimaryCategoryList_SelectionChanged" Width="160" DockPanel.Dock="Left">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding}" FontSize="16" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox x:Name="SecondaryCategoryList" HorizontalAlignment="Left" Width="160" DockPanel.Dock="Left">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding}" FontSize="16" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel x:Name="PrimaryContent" DockPanel.Dock="Right">
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>
