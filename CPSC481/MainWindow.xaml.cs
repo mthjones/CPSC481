@@ -19,9 +19,11 @@ namespace CPSC481
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> CourseCategories = new List<string> { "Announcements", "Forums", "Lectures", "Assignments" };
         public MainWindow()
         {
             InitializeComponent();
+            PrimaryCategoryList.ItemsSource = CourseCategories;
         }
     }
 }
