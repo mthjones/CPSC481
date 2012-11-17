@@ -20,10 +20,36 @@ namespace CPSC481
     public partial class MainWindow : Window
     {
         List<string> CourseCategories = new List<string> { "Announcements", "Forums", "Lectures", "Assignments" };
+        List<string> Announcements = new List<string> { "Lorem ipsum", "Dolor sit amet", "Hello world", "Testing 1,2,3" };
+        List<string> Forums = new List<string> { "Nullam Pellentesque", "Porta Ornare Venenatis", "Cras", "Nibh Tortor", "Egestas Ipsum" };
+        List<string> Assignments = new List<string> { "Parturient Ipsum", "Fringilla", "Fermentum Ultricies Fringilla Adipiscing", "Fusce Ligula", "Etiam Ullamcorper" };
+        List<string> Lectures = new List<string> { "Ligula", "Ultricies Amet Cras", "Euismod Purus", "Magna", "Vulputate Pharetra" };
+
         public MainWindow()
         {
             InitializeComponent();
             PrimaryCategoryList.ItemsSource = CourseCategories;
+        }
+
+        private void PrimaryCategoryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch ((string)PrimaryCategoryList.SelectedItem)
+            {
+                case "Announcements":
+                    SecondaryCategoryList.ItemsSource = Announcements;
+                    break;
+                case "Forums":
+                    SecondaryCategoryList.ItemsSource = Forums;
+                    break;
+                case "Assignments":
+                    SecondaryCategoryList.ItemsSource = Assignments;
+                    break;
+                case "Lectures":
+                    SecondaryCategoryList.ItemsSource = Lectures;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

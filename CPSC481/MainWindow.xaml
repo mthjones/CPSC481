@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Course" Height="350" Width="700">
     <Grid>
-        <DockPanel VerticalAlignment="Top">
-            <Label Content="CPSC 481" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" DockPanel.Dock="Left" />
-        </DockPanel>
-        <ListBox x:Name="PrimaryCategoryList" HorizontalAlignment="Left" Margin="0,37,0,0" Width="149">
+        <StackPanel VerticalAlignment="Top">
+            <Label Content="CPSC 481" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
+        </StackPanel>
+        <ListBox x:Name="PrimaryCategoryList" HorizontalAlignment="Left" Margin="0,37,0,0" Width="149" SelectionChanged="PrimaryCategoryList_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding}" FontSize="16" />
