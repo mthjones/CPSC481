@@ -7,5 +7,8 @@ namespace CPSC481.Models
 {
     public class Lecture
     {
+        public Course Course { get; private set; }
+        public string Content { get; set; }
+        public DateTime Posted { get; set; }
     }
 }
