@@ -7,6 +7,7 @@ namespace CPSC481.Models
 {
     public class Assignment
     {
+        public Course Course { get; private set; }
         public string Content { get; set; }
         public DateTime Due { get; set; }
     }
