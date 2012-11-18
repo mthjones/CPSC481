@@ -7,55 +7,7 @@
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
-    <Window.Resources>
-        <ResourceDictionary>
-            <DataTemplate DataType="{x:Type vm:AnnouncementViewModel}">
-                <vw:AnnouncementView />
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:ThreadViewModel}">
-                <vw:ThreadView />
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:LectureViewModel}">
-                <vw:LectureView />
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:AssignmentViewModel}">
-                <vw:AssignmentView />
-            </DataTemplate>
-            
-            
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160"></ColumnDefinition>
-            <ColumnDefinition Width="160"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="3" Grid.Row="0">
-            <Label Content="{Binding Course.Name}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
-        </StackPanel>
-        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding PrimaryCategories}" SelectedItem="{Binding SelectedPrimaryCategory, Mode=TwoWay}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding}" FontSize="16" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SecondaryCategories}" SelectedItem="{Binding SelectedSecondaryCategory, Mode=TwoWay}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding Path=Title}" FontSize="16" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ContentControl Content="{Binding CurrentView}" Grid.Row="1" Grid.Column="2"/>
+        <vw:CourseView />
     </Grid>
 </Window>
