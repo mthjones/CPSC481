@@ -18,7 +18,7 @@ namespace CPSC481.ViewModels
             SecondaryCategories = new List<string> { };
             Course = new Course { Name = "CPSC 481" };
             Course.Announcements = new List<Announcement> { new Announcement() { Title="Lorem ipsum" }, new Announcement() { Title="Dolor sit amet" }, new Announcement() { Title="Hello world" }, new Announcement() { Title="Testing 1,2,3" } };
-            Course.Threads = new List<Thread> { new Thread() { Content = "Nullam Pellentesque" }, new Thread() { Content = "Porta Ornare Venenatis" }, new Thread() { Content = "Cras" } };
+            Course.Threads = new List<Thread> { new Thread() { Title = "Nullam Pellentesque" }, new Thread() { Title = "Porta Ornare Venenatis" }, new Thread() { Title = "Cras" } };
             Course.Lectures = new List<Lecture> { new Lecture() { Content = "Ligula" }, new Lecture() { Content = "Ultricies Amet Cras" }, new Lecture() { Content = "Euismod Purus" }, new Lecture() { Content = "Magna" }, new Lecture() { Content = "Vulputate Pharetra" } };
             Course.Assignments = new List<Assignment> { new Assignment() { Content="Parturient Ipsum" }, new Assignment() { Content="Fringilla" }, new Assignment() { Content="Fermentum Ultricies Fringilla Adipiscing" }, new Assignment() { Content="Fusce Ligula" }, new Assignment() { Content="Etiam Ullamcorper" } };
         }
@@ -37,27 +37,6 @@ namespace CPSC481.ViewModels
         {
             get { return this._secondaryCategories; }
             set { NotifyPropertyChanged("SecondaryCategories"); this._secondaryCategories = value; }
-        }
-
-        public void LoadSecondaryCategories(string primaryCategory)
-        {
-            switch (primaryCategory)
-            {
-                case "Announcements":
-                    SecondaryCategories = this.Course.Announcements.Select(x=>x.Content);
-                    break;
-                case "Forums":
-                    SecondaryCategories = this.Course.Threads.Select(x=>x.Title);
-                    break;
-                case "Assignments":
-                    SecondaryCategories = this.Course.Assignments.Select(x=>x.Content);
-                    break;
-                case "Lectures":
-                    SecondaryCategories = this.Course.Lectures.Select(x=>x.Content);
-                    break;
-                default:
-                    break;
-            }
         }
     }
 }
