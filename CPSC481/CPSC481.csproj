@@ -54,14 +54,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\AnnouncementViewModel.cs" />
+    <Compile Include="ViewModels\AssignmentViewModel.cs" />
+    <Compile Include="ViewModels\LectureViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\AnnouncementView.xaml.cs">
       <DependentUpon>AnnouncementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AssignmentView.xaml.cs">
+      <DependentUpon>AssignmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LectureView.xaml.cs">
+      <DependentUpon>LectureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ThreadView.xaml.cs">
       <DependentUpon>ThreadView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AnnouncementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AssignmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LectureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
