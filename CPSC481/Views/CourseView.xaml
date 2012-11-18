@@ -7,9 +7,6 @@
              xmlns:vw="clr-namespace:CPSC481.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <vm:CourseViewModel />
-    </UserControl.DataContext>
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type vm:AnnouncementViewModel}">
             <vw:AnnouncementView />
