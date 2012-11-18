@@ -14,7 +14,19 @@ namespace CPSC481.ViewModels
         public MainViewModel()
         {
             Courses = new ObservableCollection<CourseViewModel>();
+            LoadCourses();
+            SelectedCourse = Courses[0];
+        }
 
+        public ObservableCollection<CourseViewModel> Courses { get; set; }
+        public CourseViewModel SelectedCourse
+        {
+            get { return this._selectedCourse; }
+            set { this._selectedCourse = value; NotifyPropertyChanged("SelectedCourse"); }
+        }
+
+        private void LoadCourses()
+        {
             Course CPSC481 = new Course() { Name = "CPSC 481" };
             CPSC481.Announcements = new ObservableCollection<Announcement> { new Announcement() { Title = "Lorem ipsum" }, new Announcement() { Title = "Dolor sit amet" }, new Announcement() { Title = "Hello world" }, new Announcement() { Title = "Testing 1,2,3" } };
             CPSC481.Threads = new ObservableCollection<Thread> { new Thread() { Title = "Nullam Pellentesque" }, new Thread() { Title = "Porta Ornare Venenatis" }, new Thread() { Title = "Cras" } };
@@ -35,15 +47,6 @@ namespace CPSC481.ViewModels
             SENG515.Lectures = new ObservableCollection<Lecture> { new Lecture() { Content = "Ligula" }, new Lecture() { Content = "Ultricies Amet Cras" }, new Lecture() { Content = "Euismod Purus" }, new Lecture() { Content = "Magna" }, new Lecture() { Content = "Vulputate Pharetra" } };
             SENG515.Assignments = new ObservableCollection<Assignment> { new Assignment() { Content = "Parturient Ipsum" }, new Assignment() { Content = "Fringilla" }, new Assignment() { Content = "Fermentum Ultricies Fringilla Adipiscing" }, new Assignment() { Content = "Fusce Ligula" }, new Assignment() { Content = "Etiam Ullamcorper" } };
             Courses.Add(new CourseViewModel(SENG515));
-
-            SelectedCourse = Courses[0];
-        }
-
-        public ObservableCollection<CourseViewModel> Courses { get; set; }
-        public CourseViewModel SelectedCourse
-        {
-            get { return this._selectedCourse; }
-            set { this._selectedCourse = value; NotifyPropertyChanged("SelectedCourse"); }
         }
     }
 }
