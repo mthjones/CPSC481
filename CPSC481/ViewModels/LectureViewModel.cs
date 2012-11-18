@@ -13,6 +13,11 @@ namespace CPSC481.ViewModels
             this.Lecture = lecture;
         }
 
+        public LectureViewModel()
+        {
+            // TODO: Complete member initialization
+        }
+
         public Lecture Lecture { get; set; }
     }
 }

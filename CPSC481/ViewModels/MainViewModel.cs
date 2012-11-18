@@ -14,6 +14,7 @@ namespace CPSC481.ViewModels
         private Course _course;
         private string _selectedPrimaryCategory;
         private string _selectedSecondaryCategory;
+        private ViewModelBase _currentView;
 
         public MainViewModel()
         {
@@ -52,6 +53,11 @@ namespace CPSC481.ViewModels
             get { return this._selectedSecondaryCategory; }
             set { this._selectedSecondaryCategory = value; LoadContent(); NotifyPropertyChanged("SelectedSecondaryCategory"); }
         }
+        public ViewModelBase CurrentView
+        {
+            get { return this._currentView; }
+            set { this._currentView = value; NotifyPropertyChanged("CurrentView"); }
+        }
 
         private void LoadSecondaryCategories()
         {
@@ -78,7 +84,24 @@ namespace CPSC481.ViewModels
 
         private void LoadContent()
         {
-
+            switch (SelectedPrimaryCategory)
+            {
+                case "Announcements":
+                    this.CurrentView = new AnnouncementViewModel();
+                    break;
+                case "Forums":
+                    this.CurrentView = new ThreadViewModel();
+                    break;
+                case "Assignments":
+                    this.CurrentView = new AssignmentViewModel();
+                    break;
+                case "Lectures":
+                    this.CurrentView = new LectureViewModel();
+                    break;
+                default:
+                    break;
+            }
         }
+
     }
 }

@@ -13,6 +13,11 @@ namespace CPSC481.ViewModels
             this.Assignment = assignment;
         }
 
+        public AssignmentViewModel()
+        {
+            // TODO: Complete member initialization
+        }
+
         public Assignment Assignment { get; set; }
     }
 }

@@ -9,9 +9,6 @@
     </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
-            <DataTemplate x:Key="CategoryTemplate">
-                <Label Content="{Binding}" FontSize="16" />
-            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:AnnouncementViewModel}">
                 <vw:AnnouncementView />
             </DataTemplate>
@@ -23,6 +20,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:AssignmentViewModel}">
                 <vw:AssignmentView />
+            </DataTemplate>
+            <DataTemplate x:Key="CategoryTemplate">
+                <Label Content="{Binding}" FontSize="16" />
             </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
@@ -41,6 +41,6 @@
         </StackPanel>
         <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding PrimaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}" SelectedItem="{Binding SelectedPrimaryCategory, Mode=TwoWay}"/>
         <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SecondaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}" SelectedItem="{Binding SelectedSecondaryCategory, Mode=TwoWay}"/>
-        <ContentControl Content="{Binding SelectedSecondaryCategory}" Grid.Row="1" Grid.Column="2"/>
+        <ContentControl Content="{Binding CurrentView}" Grid.Row="1" Grid.Column="2"/>
     </Grid>
 </Window>
