@@ -8,7 +8,6 @@ namespace CPSC481.Models
 {
     public class Thread
     {
-        public Course Course { get; private set; }
         public ObservableCollection<Post> Posts { get; private set; }
         public string Title { get; set; }
         public string Content { get; set; }
