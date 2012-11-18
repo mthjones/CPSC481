@@ -4,27 +4,34 @@
         xmlns:vw="clr-namespace:CPSC481.Views"
         Title="Course" Height="500" Width="800">
     <Grid>
-        <DockPanel>
-            <StackPanel DockPanel.Dock="Top">
-                <Label Content="CPSC 481" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
-            </StackPanel>
-            <ListBox x:Name="PrimaryCategoryList" HorizontalAlignment="Left" SelectionChanged="PrimaryCategoryList_SelectionChanged" Width="160" DockPanel.Dock="Left">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Label Content="{Binding}" FontSize="16" />
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            <ListBox x:Name="SecondaryCategoryList" HorizontalAlignment="Left" Width="160" DockPanel.Dock="Left" SelectionChanged="SecondaryCategoryList_SelectionChanged">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Label Content="{Binding}" FontSize="16" />
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            <StackPanel x:Name="PrimaryContent" DockPanel.Dock="Right">
-                <vw:ThreadView x:Name="ThreadView"/>
-            </StackPanel>
-        </DockPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"></ColumnDefinition>
+            <ColumnDefinition Width="160"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="3" Grid.Row="0">
+            <Label Content="CPSC 481" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
+        </StackPanel>
+        <ListBox x:Name="PrimaryCategoryList" SelectionChanged="PrimaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding}" FontSize="16" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="SecondaryCategoryList" SelectionChanged="SecondaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding}" FontSize="16" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel x:Name="PrimaryContent" Grid.Row="1" Grid.Column="2">
+            <vw:ThreadView x:Name="ThreadView"/>
+        </StackPanel>
     </Grid>
 </Window>
