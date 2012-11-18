@@ -11,18 +11,43 @@ namespace CPSC481.ViewModels
     {
         private Course _course;
         private string _selectedPrimaryCategory;
-        private string _selectedSecondaryCategory;
+        private ViewModelBase _selectedSecondaryCategory;
         private ViewModelBase _currentView;
 
         public MainViewModel()
         {
             PrimaryCategories = new ObservableCollection<string> { "Announcements", "Forums", "Lectures", "Assignments" };
-            SecondaryCategories = new ObservableCollection<string> { };
+            SecondaryCategories = new ObservableCollection<ViewModelBase>();
             Course = new Course { Name = "CPSC 481" };
-            Announcements = new ObservableCollection<Announcement>() { new Announcement() { Title = "Lorem ipsum" }, new Announcement() { Title = "Dolor sit amet" }, new Announcement() { Title = "Hello world" }, new Announcement() { Title = "Testing 1,2,3" } };
-            Threads = new ObservableCollection<Thread>() { new Thread() { Title = "Nullam Pellentesque" }, new Thread() { Title = "Porta Ornare Venenatis" }, new Thread() { Title = "Cras" } };
-            Lectures = new ObservableCollection<Lecture>() { new Lecture() { Content = "Ligula" }, new Lecture() { Content = "Ultricies Amet Cras" }, new Lecture() { Content = "Euismod Purus" }, new Lecture() { Content = "Magna" }, new Lecture() { Content = "Vulputate Pharetra" } };
-            Assignments = new ObservableCollection<Assignment>() { new Assignment() { Content = "Parturient Ipsum" }, new Assignment() { Content = "Fringilla" }, new Assignment() { Content = "Fermentum Ultricies Fringilla Adipiscing" }, new Assignment() { Content = "Fusce Ligula" }, new Assignment() { Content = "Etiam Ullamcorper" } };
+            Course.Announcements = new ObservableCollection<Announcement> { new Announcement() { Title = "Lorem ipsum" }, new Announcement() { Title = "Dolor sit amet" }, new Announcement() { Title = "Hello world" }, new Announcement() { Title = "Testing 1,2,3" } };
+            Course.Threads = new ObservableCollection<Thread> { new Thread() { Title = "Nullam Pellentesque" }, new Thread() { Title = "Porta Ornare Venenatis" }, new Thread() { Title = "Cras" } };
+            Course.Lectures = new ObservableCollection<Lecture> { new Lecture() { Content = "Ligula" }, new Lecture() { Content = "Ultricies Amet Cras" }, new Lecture() { Content = "Euismod Purus" }, new Lecture() { Content = "Magna" }, new Lecture() { Content = "Vulputate Pharetra" } };
+            Course.Assignments = new ObservableCollection<Assignment> { new Assignment() { Content = "Parturient Ipsum" }, new Assignment() { Content = "Fringilla" }, new Assignment() { Content = "Fermentum Ultricies Fringilla Adipiscing" }, new Assignment() { Content = "Fusce Ligula" }, new Assignment() { Content = "Etiam Ullamcorper" } };
+
+            Announcements = new ObservableCollection<AnnouncementViewModel>();
+            foreach (var announcement in Course.Announcements)
+            {
+                Announcements.Add(new AnnouncementViewModel(announcement));
+            }
+
+            Threads = new ObservableCollection<ThreadViewModel>();
+            foreach (var thread in Course.Threads)
+            {
+                Threads.Add(new ThreadViewModel(thread));
+            }
+
+            Lectures = new ObservableCollection<LectureViewModel>();
+            foreach (var lecture in Course.Lectures)
+            {
+                Lectures.Add(new LectureViewModel(lecture));
+            }
+
+            Assignments = new ObservableCollection<AssignmentViewModel>();
+            foreach (var assignment in Course.Assignments)
+            {
+                Assignments.Add(new AssignmentViewModel(assignment));
+            }
+            
             SelectedPrimaryCategory = PrimaryCategories[0];
         }
 
@@ -31,19 +56,19 @@ namespace CPSC481.ViewModels
             get { return this._course; }
             set { this._course = value; NotifyPropertyChanged("Course"); }
         }
-        public ObservableCollection<Announcement> Announcements { get; set; }
-        public ObservableCollection<Thread> Threads { get; set; }
-        public ObservableCollection<Lecture> Lectures { get; set; }
-        public ObservableCollection<Assignment> Assignments { get; set; }
+        public ObservableCollection<AnnouncementViewModel> Announcements { get; set; }
+        public ObservableCollection<ThreadViewModel> Threads { get; set; }
+        public ObservableCollection<LectureViewModel> Lectures { get; set; }
+        public ObservableCollection<AssignmentViewModel> Assignments { get; set; }
         public ObservableCollection<string> PrimaryCategories { get; set; }
-        public ObservableCollection<string> SecondaryCategories { get; set; }
+        public ObservableCollection<ViewModelBase> SecondaryCategories { get; set; }
 
         public string SelectedPrimaryCategory
         {
             get { return this._selectedPrimaryCategory; }
             set { this._selectedPrimaryCategory = value; LoadSecondaryCategories(); NotifyPropertyChanged("SelectedPrimaryCategory"); }
         }
-        public string SelectedSecondaryCategory
+        public ViewModelBase SelectedSecondaryCategory
         {
             get { return this._selectedSecondaryCategory; }
             set { this._selectedSecondaryCategory = value; LoadContent(); NotifyPropertyChanged("SelectedSecondaryCategory"); }
@@ -60,16 +85,16 @@ namespace CPSC481.ViewModels
             switch (SelectedPrimaryCategory)
             {
                 case "Announcements":
-                    this.Announcements.Select(x => x.Title).ToList().ForEach(SecondaryCategories.Add);
+                    this.Announcements.ToList().ForEach(SecondaryCategories.Add);
                     break;
                 case "Forums":
-                    this.Threads.Select(x => x.Title).ToList().ForEach(SecondaryCategories.Add);
+                    this.Threads.ToList().ForEach(SecondaryCategories.Add);
                     break;
                 case "Assignments":
-                    this.Assignments.Select(x => x.Content).ToList().ForEach(SecondaryCategories.Add);
+                    this.Assignments.ToList().ForEach(SecondaryCategories.Add);
                     break;
                 case "Lectures":
-                    this.Lectures.Select(x => x.Content).ToList().ForEach(SecondaryCategories.Add);
+                    this.Lectures.ToList().ForEach(SecondaryCategories.Add);
                     break;
                 default:
                     break;
@@ -79,23 +104,7 @@ namespace CPSC481.ViewModels
 
         private void LoadContent()
         {
-            switch (SelectedPrimaryCategory)
-            {
-                case "Announcements":
-                    this.CurrentView = new AnnouncementViewModel();
-                    break;
-                case "Forums":
-                    this.CurrentView = new ThreadViewModel();
-                    break;
-                case "Assignments":
-                    this.CurrentView = new AssignmentViewModel();
-                    break;
-                case "Lectures":
-                    this.CurrentView = new LectureViewModel();
-                    break;
-                default:
-                    break;
-            }
+            this.CurrentView = SelectedSecondaryCategory;
         }
     }
 }

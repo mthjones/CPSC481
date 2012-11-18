@@ -24,5 +24,17 @@ namespace CPSC481.ViewModels
         {
             this.Announcement = announcement;
         }
+
+        public string Title
+        {
+            get { return Announcement.Title; }
+            set { Announcement.Title = value; NotifyPropertyChanged("Title"); }
+        }
+
+        public string Content
+        {
+            get { return Announcement.Content; }
+            set { Announcement.Content = value; NotifyPropertyChanged("Content"); }
+        }
     }
 }

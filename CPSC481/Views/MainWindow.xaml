@@ -21,9 +21,8 @@
             <DataTemplate DataType="{x:Type vm:AssignmentViewModel}">
                 <vw:AssignmentView />
             </DataTemplate>
-            <DataTemplate x:Key="CategoryTemplate">
-                <Label Content="{Binding}" FontSize="16" />
-            </DataTemplate>
+            
+            
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
@@ -39,8 +38,24 @@
         <StackPanel Grid.ColumnSpan="3" Grid.Row="0">
             <Label Content="{Binding Course.Name}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
         </StackPanel>
-        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding PrimaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}" SelectedItem="{Binding SelectedPrimaryCategory, Mode=TwoWay}"/>
-        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SecondaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}" SelectedItem="{Binding SelectedSecondaryCategory, Mode=TwoWay}"/>
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding PrimaryCategories}" SelectedItem="{Binding SelectedPrimaryCategory, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding}" FontSize="16" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SecondaryCategories}" SelectedItem="{Binding SelectedSecondaryCategory, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Path=Title}" FontSize="16" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <ContentControl Content="{Binding CurrentView}" Grid.Row="1" Grid.Column="2"/>
     </Grid>
 </Window>
