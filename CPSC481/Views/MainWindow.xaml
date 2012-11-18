@@ -1,8 +1,16 @@
 ﻿<Window x:Class="CPSC481.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:CPSC481.ViewModels"
         xmlns:vw="clr-namespace:CPSC481.Views"
         Title="Course" Height="500" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="CategoryTemplate">
+                <Label Content="{Binding}" FontSize="16" />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -14,22 +22,10 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="3" Grid.Row="0">
-            <Label Content="CPSC 481" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
+            <Label Content="{Binding Course.Name}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
         </StackPanel>
-        <ListBox x:Name="PrimaryCategoryList" SelectionChanged="PrimaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="0">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding}" FontSize="16" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox x:Name="SecondaryCategoryList" SelectionChanged="SecondaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding}" FontSize="16" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <vw:ThreadView x:Name="ThreadView" Grid.Row="1" Grid.Column="2" />
+        <ListBox x:Name="PrimaryCategoryList" SelectionChanged="PrimaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding PrimaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}"/>
+        <ListBox x:Name="SecondaryCategoryList" SelectionChanged="SecondaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SecondaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}"/>
+        <!--<vw:ThreadView x:Name="ThreadView" Grid.Row="1" Grid.Column="2" />-->
     </Grid>
 </Window>
