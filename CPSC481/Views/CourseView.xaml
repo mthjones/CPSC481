@@ -32,7 +32,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Label Content="{Binding}" FontSize="16" FontWeight="Bold" />
+                        <Label Content="{Binding}" FontSize="16" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -41,7 +41,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Label Content="{Binding Title}" FontSize="16" FontWeight="Bold" />
+                        <Label Content="{Binding Title}" FontSize="16" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
