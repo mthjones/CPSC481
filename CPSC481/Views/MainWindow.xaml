@@ -30,8 +30,8 @@
         </Grid.RowDefinitions>
         <ContentControl Content="{Binding SelectedCourse}" Grid.Row="1"/>
         <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,2" Padding="5">
-            <StackPanel>
-                <Expander Header="{Binding SelectedCourse.Name}" FontSize="18" HorizontalAlignment="Left">
+            <DockPanel Margin="0,0,100,0">
+                <Expander Header="{Binding SelectedCourse.Name}" FontSize="18" HorizontalAlignment="Left" DockPanel.Dock="Left">
                     <Canvas>
                         <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}">
                             <ListBox.ItemTemplate>
@@ -42,7 +42,8 @@
                         </ListBox>
                     </Canvas>
                 </Expander>
-            </StackPanel>
+                <Image HorizontalAlignment="Right" DockPanel.Dock="Right" Source="/Assets/user-placeholder-large.png" Height="30" />
+            </DockPanel>
         </Border>
     </Grid>
 </Controls:MetroWindow>
