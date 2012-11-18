@@ -4,8 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:CPSC481.ViewModels"
+             xmlns:vw="clr-namespace:CPSC481.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:PostViewModel}">
+            <vw:PostView />
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -16,7 +22,6 @@
             <Label Content="{Binding Content}"/>
             <Border BorderBrush="Black" BorderThickness="0,0,0,1"/>
         </StackPanel>
-        <ScrollViewer Grid.Row="1">
-        </ScrollViewer>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Posts}" />
     </Grid>
 </UserControl>
