@@ -10,12 +10,14 @@ namespace CPSC481.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private CourseViewModel _selectedCourse;
+        private UserViewModel _currentUser;
 
         public MainViewModel()
         {
             Courses = new ObservableCollection<CourseViewModel>();
             LoadCourses();
             SelectedCourse = Courses[0];
+            CurrentUser = new UserViewModel(new User() { Username = "example@example.com" });
         }
 
         public ObservableCollection<CourseViewModel> Courses { get; set; }
@@ -23,6 +25,11 @@ namespace CPSC481.ViewModels
         {
             get { return this._selectedCourse; }
             set { this._selectedCourse = value; NotifyPropertyChanged("SelectedCourse"); }
+        }
+        public UserViewModel CurrentUser
+        {
+            get { return this._currentUser; }
+            set { this._currentUser = value; NotifyPropertyChanged("CurrentUser"); }
         }
 
         private void LoadCourses()

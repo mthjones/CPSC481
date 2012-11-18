@@ -21,6 +21,9 @@
             <DataTemplate DataType="{x:Type vm:CourseViewModel}">
                 <vw:CourseView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:UserViewModel}">
+                <vw:UserView />
+            </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
@@ -42,7 +45,7 @@
                         </ListBox>
                     </Canvas>
                 </Expander>
-                <Image HorizontalAlignment="Right" DockPanel.Dock="Right" Source="/Assets/user-placeholder-large.png" Height="30" />
+                <ContentControl Content="{Binding CurrentUser}" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
             </DockPanel>
         </Border>
     </Grid>
