@@ -22,12 +22,9 @@ namespace CPSC481
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainViewModel _viewModel = new MainViewModel();
-
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = _viewModel;
         }
     }
 }
