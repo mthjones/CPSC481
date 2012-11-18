@@ -9,8 +9,6 @@ namespace CPSC481.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private ObservableCollection<string> _secondaryCategories;
-        private ObservableCollection<string> _primaryCategories;
         private Course _course;
         private string _selectedPrimaryCategory;
         private string _selectedSecondaryCategory;
