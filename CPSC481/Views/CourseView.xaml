@@ -25,19 +25,12 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160" />
             <ColumnDefinition Width="160" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="3" Grid.Row="0">
-            <Label Content="{Binding Name}" FontSize="20" FontWeight="Bold" />
-        </StackPanel>
-        <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
+        <ListBox Grid.Column="0" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -46,7 +39,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+        <ListBox Grid.Column="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -55,6 +48,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ContentControl Content="{Binding SelectedItem}" Grid.Column="2" Grid.Row="1"/>
+        <ContentControl Content="{Binding SelectedItem}" Grid.Column="2"/>
     </Grid>
 </UserControl>

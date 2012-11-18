@@ -17,7 +17,7 @@ namespace CPSC481.ViewModels
 
         #region Constructors
         public CourseViewModel()
-            : this(new Course() { Name = "CPSC 481" })
+            : this(new Course() { Name = "Placeholder" })
         {
         }
 

@@ -7,7 +7,29 @@
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:CourseViewModel}">
+            <vw:CourseView />
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        <vw:CourseView />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ContentControl Content="{Binding SelectedCourse}" Grid.Row="1"/>
+        <StackPanel Grid.Row="0">
+            <Expander Header="{Binding SelectedCourse.Name}" FontSize="20" FontWeight="Bold">
+                <Canvas>
+                    <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Canvas>
+            </Expander>
+        </StackPanel>
     </Grid>
 </Window>
