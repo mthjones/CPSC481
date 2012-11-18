@@ -18,8 +18,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ContentControl Content="{Binding SelectedCourse}" Grid.Row="1"/>
-        <StackPanel Grid.Row="0">
-            <Border BorderBrush="Black" BorderThickness="0,0,0,2">
+        <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,2">
+            <StackPanel>
                 <Expander Header="{Binding SelectedCourse.Name}" FontSize="20" FontWeight="Bold">
                     <Canvas>
                         <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}" FontSize="14" FontWeight="Normal">
@@ -31,7 +31,7 @@
                         </ListBox>
                     </Canvas>
                 </Expander>
-            </Border>
-        </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
