@@ -19,17 +19,19 @@
         </Grid.RowDefinitions>
         <ContentControl Content="{Binding SelectedCourse}" Grid.Row="1"/>
         <StackPanel Grid.Row="0">
-            <Expander Header="{Binding SelectedCourse.Name}" FontSize="20" FontWeight="Bold">
-                <Canvas>
-                    <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Label Content="{Binding Name}" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Canvas>
-            </Expander>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,2">
+                <Expander Header="{Binding SelectedCourse.Name}" FontSize="20" FontWeight="Bold">
+                    <Canvas>
+                        <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}" FontSize="14" FontWeight="Normal">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Name}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Canvas>
+                </Expander>
+            </Border>
         </StackPanel>
     </Grid>
 </Window>
