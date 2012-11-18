@@ -4,7 +4,8 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:vm="clr-namespace:CPSC481.ViewModels"
         xmlns:vw="clr-namespace:CPSC481.Views"
-        Title="{Binding SelectedCourse.Name}" Height="500" Width="800">
+        Height="500" Width="800"
+        ShowTitleBar="False">
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
