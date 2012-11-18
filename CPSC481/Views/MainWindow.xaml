@@ -31,9 +31,9 @@
         <ContentControl Content="{Binding SelectedCourse}" Grid.Row="1"/>
         <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,2" Padding="5">
             <StackPanel>
-                <Expander Header="{Binding SelectedCourse.Name}" FontSize="18">
+                <Expander Header="{Binding SelectedCourse.Name}" FontSize="18" HorizontalAlignment="Left">
                     <Canvas>
-                        <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}" FontSize="14" FontWeight="Normal">
+                        <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding Name}" />
