@@ -30,27 +30,27 @@ namespace CPSC481.ViewModels
         public Course Course
         {
             get { return this._course; }
-            set { NotifyPropertyChanged("Course"); this._course = value; }
+            set { this._course = value; NotifyPropertyChanged("Course"); }
         }
         public ObservableCollection<string> PrimaryCategories
         {
             get { return this._primaryCategories; }
-            set { NotifyPropertyChanged("PrimaryCategories"); this._primaryCategories = value; }
+            set { this._primaryCategories = value; }
         }
         public ObservableCollection<string> SecondaryCategories
         {
             get { return this._secondaryCategories; }
-            set { NotifyPropertyChanged("SecondaryCategories"); this._secondaryCategories = value; }
+            set { this._secondaryCategories = value; }
         }
         public string SelectedPrimaryCategory
         {
             get { return this._selectedPrimaryCategory; }
-            set { this._selectedPrimaryCategory = value; LoadSecondaryCategories(); }
+            set { this._selectedPrimaryCategory = value; LoadSecondaryCategories(); NotifyPropertyChanged("SelectedPrimaryCategory"); }
         }
         public string SelectedSecondaryCategory
         {
             get { return this._selectedSecondaryCategory; }
-            set { this._selectedSecondaryCategory = value; LoadContent(); }
+            set { this._selectedSecondaryCategory = value; LoadContent(); NotifyPropertyChanged("SelectedSecondaryCategory"); }
         }
 
         private void LoadSecondaryCategories()
