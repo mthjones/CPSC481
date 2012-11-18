@@ -23,7 +23,7 @@ namespace CPSC481
     public partial class MainWindow : Window
     {
         List<string> CourseCategories = new List<string> { "Announcements", "Forums", "Lectures", "Assignments" };
-        List<string> Announcements = new List<string> { "Lorem ipsum", "Dolor sit amet", "Hello world", "Testing 1,2,3" };
+        List<Announcement> Announcements = new List<Announcement> { new Announcement() { Title = "Lorem ipsum"}, new Announcement() { Title = "Dolor sit amet"}, new Announcement() { Title = "Hello world"},new Announcement() { Title =  "Testing 1,2,3" }};
         List<Thread> Forums = new List<Thread> { new Thread() { Content = "Nullam Pellentesque" }, new Thread() { Content="Porta Ornare Venenatis" }, new Thread() { Content="Cras" }};
         List<string> Assignments = new List<string> { "Parturient Ipsum", "Fringilla", "Fermentum Ultricies Fringilla Adipiscing", "Fusce Ligula", "Etiam Ullamcorper" };
         List<string> Lectures = new List<string> { "Ligula", "Ultricies Amet Cras", "Euismod Purus", "Magna", "Vulputate Pharetra" };
