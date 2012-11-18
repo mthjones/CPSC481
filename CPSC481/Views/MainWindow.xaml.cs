@@ -29,30 +29,5 @@ namespace CPSC481
             InitializeComponent();
             this.DataContext = _viewModel;
         }
-
-        private void PrimaryCategoryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch ((string)PrimaryCategoryList.SelectedItem)
-            {
-                case "Announcements":
-                    SecondaryCategoryList.ItemsSource = this._viewModel.Course.Announcements.Select(x => x.Title);
-                    break;
-                case "Forums":
-                    SecondaryCategoryList.ItemsSource = this._viewModel.Course.Threads.Select(x => x.Title);
-                    break;
-                case "Assignments":
-                    SecondaryCategoryList.ItemsSource = this._viewModel.Course.Assignments.Select(x => x.Content);
-                    break;
-                case "Lectures":
-                    SecondaryCategoryList.ItemsSource = this._viewModel.Course.Lectures.Select(x => x.Content);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void SecondaryCategoryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
     }
 }

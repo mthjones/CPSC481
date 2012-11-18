@@ -12,6 +12,7 @@ namespace CPSC481.ViewModels
         private ObservableCollection<string> _secondaryCategories;
         private ObservableCollection<string> _primaryCategories;
         private Course _course;
+        private string _selectedPrimaryCategory;
 
         public MainViewModel()
         {
@@ -38,6 +39,33 @@ namespace CPSC481.ViewModels
         {
             get { return this._secondaryCategories; }
             set { NotifyPropertyChanged("SecondaryCategories"); this._secondaryCategories = value; }
+        }
+        public string SelectedPrimaryCategory
+        {
+            get { return this._selectedPrimaryCategory; }
+            set { this._selectedPrimaryCategory = value; LoadSecondaryCategories(); }
+        }
+
+        public void LoadSecondaryCategories()
+        {
+            SecondaryCategories.Clear();
+            switch (SelectedPrimaryCategory)
+            {
+                case "Announcements":
+                    this.Course.Announcements.Select(x => x.Title).ToList().ForEach(SecondaryCategories.Add);
+                    break;
+                case "Forums":
+                    this.Course.Threads.Select(x => x.Title).ToList().ForEach(SecondaryCategories.Add);
+                    break;
+                case "Assignments":
+                    this.Course.Assignments.Select(x => x.Content).ToList().ForEach(SecondaryCategories.Add);
+                    break;
+                case "Lectures":
+                    this.Course.Lectures.Select(x => x.Content).ToList().ForEach(SecondaryCategories.Add);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

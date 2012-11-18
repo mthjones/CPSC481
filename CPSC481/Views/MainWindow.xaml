@@ -24,7 +24,7 @@
         <StackPanel Grid.ColumnSpan="3" Grid.Row="0">
             <Label Content="{Binding Course.Name}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Width="99" />
         </StackPanel>
-        <ListBox x:Name="PrimaryCategoryList" SelectionChanged="PrimaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding PrimaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}"/>
+        <ListBox x:Name="PrimaryCategoryList" SelectionChanged="PrimaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding PrimaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}" SelectedItem="{Binding SelectedPrimaryCategory, Mode=TwoWay}"/>
         <ListBox x:Name="SecondaryCategoryList" SelectionChanged="SecondaryCategoryList_SelectionChanged" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SecondaryCategories}" ItemTemplate="{StaticResource ResourceKey=CategoryTemplate}"/>
         <!--<vw:ThreadView x:Name="ThreadView" Grid.Row="1" Grid.Column="2" />-->
     </Grid>
