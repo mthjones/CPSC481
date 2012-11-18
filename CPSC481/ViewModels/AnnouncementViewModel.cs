@@ -17,7 +17,12 @@ namespace CPSC481.ViewModels
 
         public AnnouncementViewModel()
         {
-            Announcement = new Announcement() { Title = "Announcement", Content = "Placeholder", Posted = DateTime.Now };
+            this.Announcement = new Announcement() { Title = "Announcement", Content = "Placeholder", Posted = DateTime.Now };
+        }
+
+        public AnnouncementViewModel(Announcement announcement)
+        {
+            this.Announcement = announcement;
         }
     }
 }

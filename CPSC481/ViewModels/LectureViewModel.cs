@@ -1,11 +1,18 @@
-﻿using System;
+﻿using CPSC481.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace CPSC481.ViewModels
 {
-    class LectureViewModel
+    public class LectureViewModel : ViewModelBase
     {
+        public LectureViewModel(Lecture lecture)
+        {
+            this.Lecture = lecture;
+        }
+
+        public Lecture Lecture { get; set; }
     }
 }

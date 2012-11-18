@@ -17,6 +17,11 @@ namespace CPSC481.ViewModels
             Thread = new Thread() { Title="Lorem ipsum dolor", Content = "Hello world!" };
         }
 
+        public ThreadViewModel(Thread thread)
+        {
+            this.Thread = thread;
+        }
+
         public string Title
         {
             get { return Thread.Title; }
