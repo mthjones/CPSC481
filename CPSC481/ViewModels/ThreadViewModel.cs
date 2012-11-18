@@ -9,12 +9,9 @@ namespace CPSC481.ViewModels
 {
     public class ThreadViewModel : ViewModelBase
     {
-        //private ObservableCollection<PostViewModel> _posts = new ObservableCollection<PostViewModel>();
-        public Thread Thread { get; set; }
-
         public ThreadViewModel()
+            : this(new Thread() { Title="Lorem ipsum dolor", Content = "Hello world!" })
         {
-            Thread = new Thread() { Title="Lorem ipsum dolor", Content = "Hello world!" };
         }
 
         public ThreadViewModel(Thread thread)
@@ -22,16 +19,26 @@ namespace CPSC481.ViewModels
             this.Thread = thread;
         }
 
+        private Thread Thread { get; set; }
+
         public string Title
         {
             get { return Thread.Title; }
-            set { NotifyPropertyChanged("Title"); Thread.Title = value; }
+            set { Thread.Title = value; NotifyPropertyChanged("Title"); }
         }
 
         public string Content
         {
             get { return Thread.Content; }
-            set { NotifyPropertyChanged("Content"); Thread.Content = value; }
+            set { Thread.Content = value; NotifyPropertyChanged("Content"); }
         }
+
+        public DateTime Posted
+        {
+            get { return Thread.Posted; }
+            set { Thread.Posted = value; NotifyPropertyChanged("Posted"); }
+        }
+
+        public ObservableCollection<PostViewModel> Posts { get; set; }
     }
 }

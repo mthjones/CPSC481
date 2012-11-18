@@ -8,22 +8,17 @@ namespace CPSC481.ViewModels
 {
     public class AnnouncementViewModel : ViewModelBase
     {
-        private Announcement _announcement;
-        public Announcement Announcement
-        {
-            get { return this._announcement; }
-            set { NotifyPropertyChanged("Announcement"); this._announcement = value; }
-        }
-
         public AnnouncementViewModel()
+            : this(new Announcement() { Title = "Announcement", Content = "Placeholder", Posted = DateTime.Now })
         {
-            this.Announcement = new Announcement() { Title = "Announcement", Content = "Placeholder", Posted = DateTime.Now };
         }
 
         public AnnouncementViewModel(Announcement announcement)
         {
             this.Announcement = announcement;
         }
+
+        private Announcement Announcement { get; set; }
 
         public string Title
         {

@@ -58,6 +58,7 @@
     <Compile Include="ViewModels\CourseViewModel.cs" />
     <Compile Include="ViewModels\LectureViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="Views\AnnouncementView.xaml.cs">
       <DependentUpon>AnnouncementView.xaml</DependentUpon>
     </Compile>
