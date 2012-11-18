@@ -73,6 +73,7 @@ namespace CPSC481.ViewModels
                 default:
                     break;
             }
+            SelectedSecondaryCategory = SecondaryCategories[0];
         }
 
         private void LoadContent()
