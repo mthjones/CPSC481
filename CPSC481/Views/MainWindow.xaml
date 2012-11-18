@@ -30,8 +30,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel x:Name="PrimaryContent" Grid.Row="1" Grid.Column="2">
-            <vw:ThreadView x:Name="ThreadView"/>
-        </StackPanel>
+        <vw:ThreadView x:Name="ThreadView" Grid.Row="1" Grid.Column="2" />
     </Grid>
 </Window>
