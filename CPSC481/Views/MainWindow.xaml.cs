@@ -22,47 +22,21 @@ namespace CPSC481
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> CourseCategories = new List<string> { "Announcements", "Forums", "Lectures", "Assignments" };
-        List<Announcement> Announcements = new List<Announcement> { new Announcement() { Title = "Lorem ipsum"}, new Announcement() { Title = "Dolor sit amet"}, new Announcement() { Title = "Hello world"},new Announcement() { Title =  "Testing 1,2,3" }};
-        List<Thread> Forums = new List<Thread> { new Thread() { Content = "Nullam Pellentesque" }, new Thread() { Content="Porta Ornare Venenatis" }, new Thread() { Content="Cras" }};
-        List<string> Assignments = new List<string> { "Parturient Ipsum", "Fringilla", "Fermentum Ultricies Fringilla Adipiscing", "Fusce Ligula", "Etiam Ullamcorper" };
-        List<string> Lectures = new List<string> { "Ligula", "Ultricies Amet Cras", "Euismod Purus", "Magna", "Vulputate Pharetra" };
+        private MainViewModel _viewModel = new MainViewModel();
 
         public MainWindow()
         {
             InitializeComponent();
-            PrimaryCategoryList.ItemsSource = CourseCategories;
+            this.DataContext = _viewModel;
         }
 
         private void PrimaryCategoryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch ((string)PrimaryCategoryList.SelectedItem)
-            {
-                case "Announcements":
-                    SecondaryCategoryList.ItemsSource = Announcements;
-                    break;
-                case "Forums":
-                    SecondaryCategoryList.ItemsSource = Forums;
-                    break;
-                case "Assignments":
-                    SecondaryCategoryList.ItemsSource = Assignments;
-                    break;
-                case "Lectures":
-                    SecondaryCategoryList.ItemsSource = Lectures;
-                    break;
-                default:
-                    break;
-            }
+            _viewModel.LoadSecondaryCategories((string)PrimaryCategoryList.SelectedItem);
         }
 
         private void SecondaryCategoryList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((string)PrimaryCategoryList.SelectedItem == "Forums")
-            {
-                ThreadViewModel newTVM = new ThreadViewModel();
-                newTVM.Thread = (Thread)SecondaryCategoryList.SelectedItem;
-                ThreadView.DataContext = newTVM;
-            }
         }
     }
 }
