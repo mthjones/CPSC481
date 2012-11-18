@@ -10,7 +10,16 @@
         <vm:ThreadViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <Label VerticalAlignment="Top" Height="79" Content="{Binding Content}"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label VerticalAlignment="Top" Content="{Binding Title}" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold"/>
+            <Label Content="{Binding Content}"/>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,1"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+        </ScrollViewer>
     </Grid>
 </UserControl>

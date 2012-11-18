@@ -14,7 +14,13 @@ namespace CPSC481.ViewModels
 
         public ThreadViewModel()
         {
-            Thread = new Thread() { Content = "Hello world!" };
+            Thread = new Thread() { Title="Lorem ipsum dolor", Content = "Hello world!" };
+        }
+
+        public string Title
+        {
+            get { return Thread.Title; }
+            set { NotifyPropertyChanged("Title"); Thread.Title = value; }
         }
 
         public string Content
