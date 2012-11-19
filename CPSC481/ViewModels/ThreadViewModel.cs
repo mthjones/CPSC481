@@ -35,6 +35,12 @@ namespace CPSC481.ViewModels
             set { Thread.Content = value; NotifyPropertyChanged("Content"); }
         }
 
+        public User Poster
+        {
+            get { return Thread.Poster; }
+            set { Thread.Poster = value; NotifyPropertyChanged("Poster"); }
+        }
+
         public DateTime Posted
         {
             get { return Thread.Posted; }
