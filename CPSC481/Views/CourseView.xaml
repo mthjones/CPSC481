@@ -31,9 +31,10 @@
         <ListBox Grid.Column="0" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding}" FontSize="16" />
-                    </StackPanel>
+                    <DockPanel>
+                        <Label Content="{Binding Name}" FontSize="16" DockPanel.Dock="Left"/>
+                        <Label Content="{Binding Count}" FontSize="16" FontWeight="Bold" DockPanel.Dock="Right" Name="Notifications" />
+                    </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

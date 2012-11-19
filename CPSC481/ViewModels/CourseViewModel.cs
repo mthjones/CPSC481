@@ -7,11 +7,16 @@ using System.Text;
 
 namespace CPSC481.ViewModels
 {
+    public class Category
+    {
+        public string Name { get; set; }
+        public int Count { get; set; }
+    }
     public class CourseViewModel : ViewModelBase
     {
         #region Fields
         private ViewModelBase _currentView;
-        private string _selectedCategory;
+        private Category _selectedCategory;
         private ViewModelBase _selectedItem;
         #endregion
 
@@ -30,7 +35,7 @@ namespace CPSC481.ViewModels
             this.Assignments = new ObservableCollection<AssignmentViewModel>();
             LoadCollections();
 
-            this.Categories = new ObservableCollection<string> { "Announcements", "Forums", "Lectures", "Assignments" };
+            this.Categories = new ObservableCollection<Category> { new Category() {Name="Announcements", Count=1}, new Category() {Name="Forums", Count=2}, new Category() {Name="Lectures", Count=7}, new Category() {Name="Assignments", Count=0} };
             this.Items = new ObservableCollection<ViewModelBase>();
             this.SelectedCategory = this.Categories[0];
         }
@@ -47,14 +52,14 @@ namespace CPSC481.ViewModels
         public ObservableCollection<ThreadViewModel> Threads { get; set; }
         public ObservableCollection<LectureViewModel> Lectures { get; set; }
         public ObservableCollection<AssignmentViewModel> Assignments { get; set; }
-        public ObservableCollection<string> Categories { get; set; }
+        public ObservableCollection<Category> Categories { get; set; }
         public ObservableCollection<ViewModelBase> Items { get; set; }
         public ViewModelBase CurrentView
         {
             get { return this._currentView; }
             set { this._currentView = value; NotifyPropertyChanged("CurrentView"); }
         }
-        public string SelectedCategory
+        public Category SelectedCategory
         {
             get { return this._selectedCategory; }
             set { this._selectedCategory = value; LoadItems(); NotifyPropertyChanged("SelectedCategory"); }
@@ -70,7 +75,7 @@ namespace CPSC481.ViewModels
         private void LoadItems()
         {
             Items.Clear();
-            switch (SelectedCategory)
+            switch (SelectedCategory.Name)
             {
                 case "Announcements":
                     Announcements.ToList().ForEach(Items.Add);
