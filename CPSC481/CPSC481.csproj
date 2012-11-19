@@ -61,15 +61,25 @@
     </ApplicationDefinition>
     <Compile Include="Utilities\DataGenerator.cs" />
     <Compile Include="Utilities\Ipsum.cs" />
+    <Compile Include="ViewModels\AnnouncementFormViewModel.cs" />
     <Compile Include="ViewModels\AnnouncementViewModel.cs" />
+    <Compile Include="ViewModels\AssignmentFormViewModel.cs" />
     <Compile Include="ViewModels\AssignmentViewModel.cs" />
     <Compile Include="ViewModels\CourseViewModel.cs" />
+    <Compile Include="ViewModels\LectureFormViewModel.cs" />
     <Compile Include="ViewModels\LectureViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
+    <Compile Include="ViewModels\ThreadFormViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\AnnouncementFormView.xaml.cs">
+      <DependentUpon>AnnouncementFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AnnouncementView.xaml.cs">
       <DependentUpon>AnnouncementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AssignmentFormView.xaml.cs">
+      <DependentUpon>AssignmentFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AssignmentView.xaml.cs">
       <DependentUpon>AssignmentView.xaml</DependentUpon>
@@ -77,11 +87,17 @@
     <Compile Include="Views\CourseView.xaml.cs">
       <DependentUpon>CourseView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LectureFormView.xaml.cs">
+      <DependentUpon>LectureFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LectureView.xaml.cs">
       <DependentUpon>LectureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PostView.xaml.cs">
       <DependentUpon>PostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThreadFormView.xaml.cs">
+      <DependentUpon>ThreadFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ThreadView.xaml.cs">
       <DependentUpon>ThreadView.xaml</DependentUpon>
@@ -89,7 +105,15 @@
     <Compile Include="Views\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AnnouncementFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AnnouncementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AssignmentFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CourseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LectureFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +148,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThreadFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

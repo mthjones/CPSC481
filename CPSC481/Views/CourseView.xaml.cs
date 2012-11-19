@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,28 @@ namespace CPSC481.Views
         public CourseView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CourseViewModel viewModel = (CourseViewModel)this.DataContext;
+            switch (((Category)CategoryList.SelectedItem).Name)
+            {
+                case "Announcements":
+                    viewModel.SelectedItem = new AnnouncementFormViewModel();
+                    break;
+                case "Forums":
+                    viewModel.SelectedItem = new ThreadFormViewModel();
+                    break;
+                case "Lectures":
+                    viewModel.SelectedItem = new LectureFormViewModel();
+                    break;
+                case "Assignments":
+                    viewModel.SelectedItem = new AssignmentFormViewModel();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

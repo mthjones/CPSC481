@@ -21,6 +21,18 @@
         <DataTemplate DataType="{x:Type vm:AssignmentViewModel}">
             <vw:AssignmentView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AnnouncementFormViewModel}">
+            <vw:AnnouncementFormView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ThreadFormViewModel}">
+            <vw:ThreadFormView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LectureFormViewModel}">
+            <vw:LectureFormView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AssignmentFormViewModel}">
+            <vw:AssignmentFormView />
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,7 +40,7 @@
             <ColumnDefinition Width="Auto" MinWidth="150" MaxWidth="200" />
             <ColumnDefinition Width="*" MinWidth="300" />
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
+        <ListBox x:Name="CategoryList" Grid.Column="0" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel>
@@ -38,15 +50,18 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox Grid.Column="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding Title}" FontSize="16" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Controls:TransitioningContentControl Content="{Binding SelectedItem}" Grid.Column="2" Transition="LeftReplaceTransition"/>
+        <StackPanel Grid.Column="1">
+            <Button Content="Add New" Click="Button_Click_1"  />
+            <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding Title}" FontSize="16" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <Controls:TransitioningContentControl x:Name="ContentPane" Content="{Binding SelectedItem}" Grid.Column="2" Transition="LeftReplaceTransition"/>
     </Grid>
 </UserControl>
