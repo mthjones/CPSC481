@@ -5,6 +5,7 @@
         xmlns:vm="clr-namespace:CPSC481.ViewModels"
         xmlns:vw="clr-namespace:CPSC481.Views"
         Height="500" Width="800"
+        MinHeight="400" MinWidth="650"
         ShowTitleBar="False">
     <Window.DataContext>
         <vm:MainViewModel />
