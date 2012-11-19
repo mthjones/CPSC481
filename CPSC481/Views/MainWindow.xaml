@@ -38,7 +38,7 @@
                 <Expander Header="{Binding SelectedCourse.Name}" FontSize="18" HorizontalAlignment="Left" DockPanel.Dock="Left">
                     <Canvas>
                         <Border BorderThickness="1" BorderBrush="Black">
-                            <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}">
+                            <ListBox ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged_1" >
                                 <ListBox.Resources>
                                     <Style TargetType="{x:Type ListBoxItem}">
                                         <Setter Property="MinHeight" Value="25" />
@@ -47,11 +47,8 @@
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                                    <Border x:Name="Border"
-                                                        Background="{TemplateBinding Background}"
-                                                        SnapsToDevicePixels="True">
-                                                        <ContentPresenter Margin="5, 0, 0, 0" 
-                                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                    <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                                        <ContentPresenter Margin="5, 0, 0, 0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsSelected" Value="True">

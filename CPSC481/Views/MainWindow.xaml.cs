@@ -27,5 +27,11 @@ namespace CPSC481
         {
             InitializeComponent();
         }
+
+        private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            Expander expander = (((((sender as ListBox).Parent) as Border).Parent as Canvas).Parent as Expander);
+            expander.IsExpanded = false;
+        }
     }
 }
