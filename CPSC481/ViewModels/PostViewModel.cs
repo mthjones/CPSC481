@@ -25,6 +25,12 @@ namespace CPSC481.ViewModels
             set { Post.Content = value; NotifyPropertyChanged("Content"); }
         }
 
+        public User Poster
+        {
+            get { return Post.Poster; }
+            set { Post.Poster = value; NotifyPropertyChanged("Poster"); }
+        }
+
         public DateTime Posted
         {
             get { return Post.Posted; }

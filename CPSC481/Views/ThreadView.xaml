@@ -36,8 +36,12 @@
                     <Label Content="{Binding Poster.Username}"/>
                 </StackPanel>
             </StackPanel>
-            <TextBlock Text="{Binding Content}" Grid.Row="3" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding Content}" Grid.Row="3" TextWrapping="Wrap" Padding="0,0,0,10"/>
         </Grid>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Posts}" />
+        <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="Gray">
+            <ScrollViewer Padding="0,10,0,0">
+                <ItemsControl ItemsSource="{Binding Posts}"/>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </UserControl>
