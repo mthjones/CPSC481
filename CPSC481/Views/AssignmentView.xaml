@@ -4,11 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"         
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Padding="10">
     <Grid>
-        <Label Content="{Binding Title}" Margin="-3,0,95,290" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Due:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,10,0,0"/>
-        <Label Content="{Binding Due}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="244,10,0,0"/>
-        <Label Content="{Binding Content}" Margin="10,39,10,93" RenderTransformOrigin="0.504,0.488"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Content="{Binding Title}" Grid.Row="0" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Content="Due:" FontWeight="Bold"/>
+            <Label Content="{Binding Due}"/>
+        </StackPanel>
+        <TextBlock Text="{Binding Content}" Grid.Row="2" TextWrapping="Wrap"/>
     </Grid>
 </UserControl>
