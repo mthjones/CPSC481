@@ -39,8 +39,18 @@
             </StackPanel>
             <TextBlock Grid.Row="3" TextWrapping="Wrap" Padding="0,0,0,10"/>
         </Grid>
-        <Expander Grid.Row="1" Header="Reply" >
-            <StackPanel />
+      <Expander Grid.Row="1" Header="Reply" Panel.ZIndex="99" >
+            <StackPanel>
+                <TextBox Height="80" TextWrapping="Wrap" Text="Reply Text"/>
+                <Button Content="Submit" Margin="203,0,0,0"/>
+            </StackPanel>
+        </Expander>
+        <Expander Grid.Row="1" Header="New Topic" Panel.ZIndex="99" Margin="64,0,0,0" >
+            <StackPanel>
+                <TextBox Text="Topic Title"/>
+                <TextBox Height="80" TextWrapping="Wrap" Text="New Topic text"/>
+                <Button Content="Submit" Margin="156,0,0,0"/>
+            </StackPanel>
         </Expander>
                   <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="Gray">
             <ScrollViewer Padding="0,10,0,0">
