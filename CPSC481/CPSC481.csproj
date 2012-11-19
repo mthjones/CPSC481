@@ -59,6 +59,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utilities\DataGenerator.cs" />
+    <Compile Include="Utilities\Ipsum.cs" />
     <Compile Include="ViewModels\AnnouncementViewModel.cs" />
     <Compile Include="ViewModels\AssignmentViewModel.cs" />
     <Compile Include="ViewModels\CourseViewModel.cs" />
