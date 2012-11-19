@@ -7,8 +7,8 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Label Content="{Binding Title}" Margin="-3,0,95,290" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Due:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,10,0,0"/>
-        <Label Content="{Binding Due}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="244,10,0,0"/>
-        <Label Content="{Binding Content}" Margin="10,39,10,93" RenderTransformOrigin="0.504,0.488"/>
+        <Label Content="Due:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,35,0,0" RenderTransformOrigin="0.524,0.851"/>
+        <Label Content="{Binding Due}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="49,35,0,0"/>
+        <Label Content="{Binding Content}" Margin="10,61,10,71" RenderTransformOrigin="0.504,0.488"/>
     </Grid>
 </UserControl>
