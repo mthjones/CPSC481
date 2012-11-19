@@ -1,0 +1,228 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 11/18/2012 17:05:54
+-- Generated from EDMX file: D:\Projects\CPSC481\CPSC481\CPSC481DataModel.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [Announcements];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Announcements'
+CREATE TABLE [Announcements] (
+    [Id] int  NOT NULL,
+    [Title] nvarchar(100)  NULL,
+    [Content] nvarchar(100)  NULL,
+    [Posted] datetime  NOT NULL,
+    [Course_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Assignments'
+CREATE TABLE [Assignments] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Title] nvarchar(4000)  NOT NULL,
+    [Content] nvarchar(4000)  NOT NULL,
+    [Due] datetime  NOT NULL,
+    [Course_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Courses'
+CREATE TABLE [Courses] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NOT NULL,
+    [User_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Lectures'
+CREATE TABLE [Lectures] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Title] nvarchar(4000)  NOT NULL,
+    [Content] nvarchar(4000)  NOT NULL,
+    [Posted] datetime  NOT NULL,
+    [Course_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Threads'
+CREATE TABLE [Threads] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Title] nvarchar(4000)  NOT NULL,
+    [Content] nvarchar(4000)  NOT NULL,
+    [Posted] datetime  NOT NULL,
+    [Course_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Posts'
+CREATE TABLE [Posts] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Content] nvarchar(4000)  NOT NULL,
+    [Posted] datetime  NOT NULL,
+    [Thread_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Users'
+CREATE TABLE [Users] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Username] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [Id] in table 'Announcements'
+ALTER TABLE [Announcements]
+ADD CONSTRAINT [PK_Announcements]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'Assignments'
+ALTER TABLE [Assignments]
+ADD CONSTRAINT [PK_Assignments]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'Courses'
+ALTER TABLE [Courses]
+ADD CONSTRAINT [PK_Courses]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'Lectures'
+ALTER TABLE [Lectures]
+ADD CONSTRAINT [PK_Lectures]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'Threads'
+ALTER TABLE [Threads]
+ADD CONSTRAINT [PK_Threads]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'Posts'
+ALTER TABLE [Posts]
+ADD CONSTRAINT [PK_Posts]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [Users]
+ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY ([Id] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [Course_Id] in table 'Announcements'
+ALTER TABLE [Announcements]
+ADD CONSTRAINT [FK_CourseAnnouncement]
+    FOREIGN KEY ([Course_Id])
+    REFERENCES [Courses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CourseAnnouncement'
+CREATE INDEX [IX_FK_CourseAnnouncement]
+ON [Announcements]
+    ([Course_Id]);
+GO
+
+-- Creating foreign key on [Course_Id] in table 'Assignments'
+ALTER TABLE [Assignments]
+ADD CONSTRAINT [FK_CourseAssignment]
+    FOREIGN KEY ([Course_Id])
+    REFERENCES [Courses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CourseAssignment'
+CREATE INDEX [IX_FK_CourseAssignment]
+ON [Assignments]
+    ([Course_Id]);
+GO
+
+-- Creating foreign key on [Course_Id] in table 'Lectures'
+ALTER TABLE [Lectures]
+ADD CONSTRAINT [FK_CourseLecture]
+    FOREIGN KEY ([Course_Id])
+    REFERENCES [Courses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CourseLecture'
+CREATE INDEX [IX_FK_CourseLecture]
+ON [Lectures]
+    ([Course_Id]);
+GO
+
+-- Creating foreign key on [Course_Id] in table 'Threads'
+ALTER TABLE [Threads]
+ADD CONSTRAINT [FK_CourseThread]
+    FOREIGN KEY ([Course_Id])
+    REFERENCES [Courses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CourseThread'
+CREATE INDEX [IX_FK_CourseThread]
+ON [Threads]
+    ([Course_Id]);
+GO
+
+-- Creating foreign key on [Thread_Id] in table 'Posts'
+ALTER TABLE [Posts]
+ADD CONSTRAINT [FK_ThreadPost]
+    FOREIGN KEY ([Thread_Id])
+    REFERENCES [Threads]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ThreadPost'
+CREATE INDEX [IX_FK_ThreadPost]
+ON [Posts]
+    ([Thread_Id]);
+GO
+
+-- Creating foreign key on [User_Id] in table 'Courses'
+ALTER TABLE [Courses]
+ADD CONSTRAINT [FK_UserCourse]
+    FOREIGN KEY ([User_Id])
+    REFERENCES [Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserCourse'
+CREATE INDEX [IX_FK_UserCourse]
+ON [Courses]
+    ([User_Id]);
+GO
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

@@ -1,6 +1,4 @@
-﻿using CPSC481.Models;
-using CPSC481.ViewModels;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

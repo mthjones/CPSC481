@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="380bccbb535c492bbb264bf5a28feaa4" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.Announcement" Width="1.5" PointX="1.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Assignment" Width="1.5" PointX="5.625" PointY="4.25" />
+        <EntityTypeShape EntityType="DatabaseModel.Course" Width="1.5" PointX="3.625" PointY="2.625" />
+        <AssociationConnector Association="DatabaseModel.CourseAnnouncement" />
+        <AssociationConnector Association="DatabaseModel.CourseAssignment" />
+        <EntityTypeShape EntityType="DatabaseModel.Lecture" Width="1.5" PointX="3.625" PointY="5.625" />
+        <AssociationConnector Association="DatabaseModel.CourseLecture" />
+        <EntityTypeShape EntityType="DatabaseModel.Thread" Width="1.5" PointX="8.125" PointY="2.75" />
+        <AssociationConnector Association="DatabaseModel.CourseThread" />
+        <EntityTypeShape EntityType="DatabaseModel.Post" Width="1.5" PointX="10.625" PointY="3.25" />
+        <AssociationConnector Association="DatabaseModel.ThreadPost" />
+        <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="5.75" PointY="0.75" />
+        <AssociationConnector Association="DatabaseModel.UserCourse" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
