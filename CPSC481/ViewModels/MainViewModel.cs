@@ -18,7 +18,9 @@ namespace CPSC481.ViewModels
             Courses = new ObservableCollection<CourseViewModel>();
             GenerateData();
             SelectedCourse = Courses[0];
-            CurrentUser = new UserViewModel(new User() { Username = "example@example.com" });
+            var Users = DataGenerator.Users;
+            var rnd = new Random();
+            CurrentUser = new UserViewModel(Users[rnd.Next(Users.Count)]);
         }
 
         public ObservableCollection<CourseViewModel> Courses { get; set; }
