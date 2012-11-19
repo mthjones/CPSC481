@@ -41,11 +41,11 @@ namespace CPSC481.Utilities
         private static void GenerateAssignments()
         {
             _assignments = new List<Assignment>();
-            for (int i = 0; i < 100; i++)
+            for (int i = 1; i < 100; i++)
             {
                 _assignments.Add(new Assignment()
                 {
-                    Title = ipsum.GetWords(4),
+                    Title = "Assignment " + i,
                     Content = ipsum.GetWords(100),
                     Due = GetRandomDateTime()
                 });
@@ -66,10 +66,10 @@ namespace CPSC481.Utilities
             {
                 _courses.Add(new Course()
                 {
-                    Name = ipsum.GetWords(2),
+                    Name = ipsum.GetCourses(i),
                     Announcements = new ObservableCollection<Announcement>(Announcements.OrderBy(a => rnd.Next()).Take(rnd.Next(5, 20))),
-                    Assignments = new ObservableCollection<Assignment>(Assignments.OrderBy(a => rnd.Next()).Take(rnd.Next(5, 20))),
-                    Lectures = new ObservableCollection<Lecture>(Lectures.OrderBy(a => rnd.Next()).Take(rnd.Next(5, 20))),
+                    Assignments = new ObservableCollection<Assignment>(Assignments.Take(rnd.Next(2, 20))),
+                    Lectures = new ObservableCollection<Lecture>(Lectures.Take(rnd.Next(2, 20))),
                     Threads = new ObservableCollection<Thread>(Threads.OrderBy(a => rnd.Next()).Take(rnd.Next(5, 20)))
                 });
             }
@@ -85,11 +85,11 @@ namespace CPSC481.Utilities
         private static void GenerateLectures()
         {
             _lectures = new List<Lecture>();
-            for (int i = 0; i < 100; i++)
+            for (int i = 1; i < 100; i++)
             {
                 _lectures.Add(new Lecture()
                 {
-                    Title = ipsum.GetWords(4),
+                    Title = "Lecture " + i,
                     Content = ipsum.GetWords(100),
                     Posted = GetRandomDateTime()
                 });

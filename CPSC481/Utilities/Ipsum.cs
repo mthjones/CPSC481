@@ -11,6 +11,9 @@ namespace CPSC481.Utilities
     public class Ipsum
     {
         private static Random rnd = new Random();
+        private string[] courses = new string[] { "CPSC 457", "CPSC 481","CPSC 471","CPSC 449","CPSC 441","CPSC 431",
+        "CPSC 447","CPSC 413","CPSC 411","CPSC 421"};
+        private string[] assignment = new string[] { "Assignment 1", "Assignment 2", "Assignment 3", "Asignment 4", "Assignment 5", "Assignment 6" };
         private string[] words = new string[] { "consetetur", "sadipscing", "elitr", "sed", "diam", "nonumy", "eirmod", 
     "tempor", "invidunt", "ut", "labore", "et", "dolore", "magna", "aliquyam", "erat", "sed", "diam", "voluptua", 
     "at", "vero", "eos", "et", "accusam", "et", "justo", "duo", "dolores", "et", "ea", "rebum", "stet", "clita", 
@@ -70,5 +73,12 @@ namespace CPSC481.Utilities
 
             return result.ToString();
         }
+        public string GetCourses(int index)
+        {
+            
+
+            return courses[index];
+        }
+
     }
 }
