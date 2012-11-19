@@ -23,6 +23,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Label Content="{Binding Title}" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Row="0"/>
@@ -36,9 +37,12 @@
                     <Label Content="{Binding Poster.Username}"/>
                 </StackPanel>
             </StackPanel>
-            <TextBlock Text="{Binding Content}" Grid.Row="3" TextWrapping="Wrap" Padding="0,0,0,10"/>
+            <TextBlock Grid.Row="3" TextWrapping="Wrap" Padding="0,0,0,10"/>
         </Grid>
-        <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="Gray">
+        <Expander Grid.Row="1" Header="Reply" >
+            <StackPanel />
+        </Expander>
+                  <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="Gray">
             <ScrollViewer Padding="0,10,0,0">
                 <ItemsControl ItemsSource="{Binding Posts}"/>
             </ScrollViewer>
