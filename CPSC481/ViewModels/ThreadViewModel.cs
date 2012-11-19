@@ -17,6 +17,8 @@ namespace CPSC481.ViewModels
         public ThreadViewModel(Thread thread)
         {
             this.Thread = thread;
+            this.Posts = new ObservableCollection<PostViewModel>();
+            LoadCollections();
         }
 
         private Thread Thread { get; set; }
@@ -40,5 +42,11 @@ namespace CPSC481.ViewModels
         }
 
         public ObservableCollection<PostViewModel> Posts { get; set; }
+
+        private void LoadCollections()
+        {
+            foreach (var post in Thread.Posts)
+                Posts.Add(new PostViewModel(post));
+        }
     }
 }
