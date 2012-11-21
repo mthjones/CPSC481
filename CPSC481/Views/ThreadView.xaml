@@ -48,12 +48,12 @@
         </ScrollViewer>
         </Border>
         <Expander Grid.Row="1" Header="Reply">
-            <Canvas>
+
                 <StackPanel>
                     <TextBox Height="80" TextWrapping="Wrap" Text="Reply Text"/>
-                    <Button Content="Submit" Margin="203,0,0,0"/>
+                    <Button Content="Submit" Width="150" HorizontalAlignment="Right"/>
                 </StackPanel>
-            </Canvas>
+
         </Expander>
                   
             
