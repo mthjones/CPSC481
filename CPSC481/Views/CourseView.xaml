@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CPSC481.Views.CourseView"
+<UserControl x:Class="CPSC481.Views.CourseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -50,9 +50,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1">
-            <Button Content="Add New" Click="Button_Click_1"  />
-            <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            <Button Content="Add New" Click="Button_Click_1" Grid.Row="0" />
+            <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Grid.Row="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -61,7 +65,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </StackPanel>
+        </Grid>
         <Controls:TransitioningContentControl x:Name="ContentPane" Content="{Binding SelectedItem}" Grid.Column="2" Transition="LeftReplaceTransition"/>
     </Grid>
 </UserControl>
